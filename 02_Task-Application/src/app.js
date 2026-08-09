@@ -7,7 +7,7 @@ app.use(express.json());  //----> ye middleware ka kaam karta hai jo bhi request
 const notes = []
 
 /*  title , description  */
-/* post  / notes */   //----> ye api create ke hai jiska naam hai notes 
+/*(---1----) post  / notes */   //----> ye api create ke hai jiska naam hai notes 
 
 app.post('/notes', (req, res) => {   // iss api se frontend se data backend me bheja jaa raha hai aur backend me data ko store karne ke liye notes array me push kar rahe hai
   
@@ -16,6 +16,8 @@ app.post('/notes', (req, res) => {   // iss api se frontend se data backend me b
       message: "note created successfully",
   })
 })
+
+/*(----2-----) Get  / notes */   //----> ye api create ke hai jiska naam hai notes
 
 app.get('/notes', (req, res)=>{  // or iss api se frontend me data bheja jaa raha hai jo backend me store hai notes array me
   res.status(200).json({
@@ -26,6 +28,16 @@ app.get('/notes', (req, res)=>{  // or iss api se frontend me data bheja jaa rah
 })
 
 
+/*(----3-----) Delete/notes(static)/:index(dynamics hai iss liye considered as a params) */ //-->ye bhi api create ke hai jiska naam hai notes
+
+
+app.delete('/notes/:index', (req, res)=>{
+  const idx = req.params.index
+  delete notes[ idx ] 
+  res.status(200).json({
+    message: "note deleted successfully"
+  })
+})
 
 
 
