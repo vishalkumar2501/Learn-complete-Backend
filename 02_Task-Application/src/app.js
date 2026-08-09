@@ -9,8 +9,7 @@ const notes = []
 /*  title , description  */
 /*(---1----) post  / notes */   //----> ye api create ke hai jiska naam hai notes 
 
-app.post('/notes', (req, res) => {   // iss api se frontend se data backend me bheja jaa raha hai aur backend me data ko store karne ke liye notes array me push kar rahe hai
-  
+app.post('/notes', (req, res) => {   // 
   notes.push( req.body);
   res.status(201).json({
       message: "note created successfully",
@@ -19,7 +18,7 @@ app.post('/notes', (req, res) => {   // iss api se frontend se data backend me b
 
 /*(----2-----) Get  / notes */   //----> ye api create ke hai jiska naam hai notes
 
-app.get('/notes', (req, res)=>{  // or iss api se frontend me data bheja jaa raha hai jo backend me store hai notes array me
+app.get('/notes', (req, res)=>{  
   res.status(200).json({
     message: "all notes are fetched successfully",
     notes: notes
@@ -38,6 +37,21 @@ app.delete('/notes/:index', (req, res)=>{
     message: "note deleted successfully"
   })
 })
+
+/*(----4-----) Patch/notes(static)/:index(dynamics hai iss liye considered as a params) */ //-->ye bhi api create ke hai jiska naam hai notes
+
+app.patch('/notes/:index', (req, res) => {
+  const idx = req.params.index;
+  const description = req.body.description
+
+  notes[idx].description = description;
+  res.status(200).json({
+    message: "notes updated sucessfully"  
+  })
+
+  
+})
+
 
 
 
