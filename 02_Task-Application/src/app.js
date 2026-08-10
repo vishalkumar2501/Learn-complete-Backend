@@ -32,7 +32,7 @@ app.get('/notes', (req, res)=>{
 
 app.delete('/notes/:index', (req, res)=>{
   const idx = req.params.index
-  delete notes[ idx ] 
+  delete notes[idx] 
   res.status(200).json({
     message: "note deleted successfully"
   })
@@ -42,9 +42,11 @@ app.delete('/notes/:index', (req, res)=>{
 
 app.patch('/notes/:index', (req, res) => {
   const idx = req.params.index;
-  const description = req.body.description
+  const des = req.body.description
+  const tit = req.body.title
 
-  notes[idx].description = description;
+  notes[idx].description = des;
+  notes[idx].title = tit;
   res.status(200).json({
     message: "notes updated sucessfully"  
   })
