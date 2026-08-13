@@ -1,26 +1,19 @@
-// iss file ka isliye hum used ker rahe hai ke jisse abhi cloude services  me imagekit used ker rahe hai baad me kuch or bhi ckoude services used ker sakte hai jaise cloudanary, amazone s3 .....etc isliye  jab kuch fix na ho to aaise he file me code likhte hai   
-const ImageKit = require("@imagekit/nodejs")
+const ImageKit = require("@imagekit/nodejs"); // ImageKit package import karta hai
 
-const  imageKit = new ImageKit({
-    
-        privateKey: process.env.IMAGEKIT_PRIVATE_KEY // imageKit pr jaker devloper opn me 
-    })                                                   //   privete link copy then hear pest
+const imageKit = new ImageKit({ // ImageKit ka object create karta hai
+    privateKey: process.env.IMAGEKIT_PRIVATE_KEY // .env se ImageKit ki private key leta hai
+});
 
+async function uploadFile(buffer){ // File upload karne ka function
 
-async function uploadFile(buffer){
+   console.log(buffer); // Buffer ko terminal mein check karta hai
 
-   console.log(buffer);
+   const result = await imageKit.files.upload({ // File ko ImageKit par upload karta hai
+      file: buffer.toString("base64"), // Buffer ko Base64 mein convert karta hai
+      fileName:"image.jpg" // Uploaded file ka naam
+   });
 
-
-  const result = await imageKit.files.upload({
-      file: buffer.toString("base64"),
-      fileName:"image.jpg"
-  })
-
-
-  return result;
-
+   return result; // ImageKit ka upload result return karta hai
 }
 
-
-module.exports = uploadFile;
+module.exports = uploadFile; // Function ko doosri files mein use karne ke liye export karta hai

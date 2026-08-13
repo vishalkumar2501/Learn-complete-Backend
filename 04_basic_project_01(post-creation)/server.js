@@ -1,9 +1,11 @@
-const app = require('./src/app.js');
+require("dotenv").config(); // .env ki values ko process.env mein load karta hai
 
-const connectDB = require('./src/db/db.js');
+const app = require('./src/app.js'); // Express app ko import karta hai
 
-connectDB();
+const connectDB = require('./src/db/db.js'); // MongoDB connection function import karta hai
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-})
+connectDB(); // MongoDB se connect karta hai
+
+app.listen(3000, () => { // Server ko port 3000 par start karta hai
+    console.log('Server is running on port 3000'); // Server start hone ka message
+});

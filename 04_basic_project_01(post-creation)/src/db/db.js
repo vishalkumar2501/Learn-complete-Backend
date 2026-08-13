@@ -1,18 +1,13 @@
-require("dotenv").config();// ye declare or call kerne ke badd he hum .env ke value ko access ker payenge baki iske bina nahi ker payenge 
+const mongoose = require('mongoose'); // MongoDB ke saath connection ke liye Mongoose
 
-const mongoose = require('mongoose');
-
-
-
-
-async function connectDB(){
+async function connectDB(){ // MongoDB connection ke liye function
     try {
-       await mongoose.connect(process.env.MONGO_URI)
+       await mongoose.connect(process.env.MONGO_URI); // .env se MongoDB URI lekar connect karta hai
 
-       console.log('MongoDB connected successfully');
+       console.log('MongoDB connected successfully'); // Successful connection ka message
     } catch (error) {
-        console.error('Error connecting to MongoDB:', error);
+        console.error('Error connecting to MongoDB:', error); // Connection error show karta hai
     }
 }
 
-module.exports = connectDB;
+module.exports = connectDB; // Function ko doosri file mein use karne ke liye export karta hai
