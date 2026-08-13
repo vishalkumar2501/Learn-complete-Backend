@@ -1,10 +1,13 @@
+require("dotenv").config();// ye declare or call kerne ke badd he hum .env ke value ko access ker payenge baki iske bina nahi ker payenge 
+
 const mongoose = require('mongoose');
+
 
 
 
 async function connectDB(){
     try {
-       await mongoose.connect('mongodb+srv://backend:ShvLlYzRRgfkYd3d@complete-backend-learn.odhpnrf.mongodb.net/project-1')
+       await mongoose.connect(process.env.MONGO_URI)
 
        console.log('MongoDB connected successfully');
     } catch (error) {
