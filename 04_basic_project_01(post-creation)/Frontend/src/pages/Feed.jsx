@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+// yaha hooks(useeffect) is liye used kiea hai jisse api ek baar he call ho nahi to bika hooks used kiye wo multiple time call hoga 
+
+import React, { useState, useEffect } from 'react' 
+import axios from 'axios'
 
 const Feed = () => {
 
@@ -9,6 +12,15 @@ const Feed = () => {
             caption: "dangerous player"
         }
     ])
+
+    useEffect(() => {
+        axios.get("http://localhost:3000/posts")
+        .then((res)=>{
+
+            setpost(res.data.post)
+
+        })
+    },[])
 
     return (
         <section className='feed-section'>
