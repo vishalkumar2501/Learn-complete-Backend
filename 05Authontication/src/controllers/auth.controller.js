@@ -18,10 +18,12 @@ async function registerUser(req, res) {
         process.env.JWT_SECRET
     );
 
+    res.cookie("token" , token)
+
     res.json({
         message: "User registered successfully",
         user: user,
-        token: token
+        
     });
 }
 
