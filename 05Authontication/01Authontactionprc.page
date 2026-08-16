@@ -1,0 +1,10 @@
+validation   => ka matlb hota hai jo data hume mil raha hai user se wo data sahi format me  hai ya nahi jaise email, mobile no, fullname , password iska format sahi hai ya nahi koi email me agar 1234568  aise kuch likh de rahe to to wo galat hai ye hume validation peocess se hota hai 
+
+verifacation => abb verifacation me kya hota hai ke jo data hum de rah hai wo data correct hai ya nahi jaise koi bhi email sahi hai ya nahi wo check karenge usi email ya mob no. per otp bhej ker agar email or mob no sah rahega to wo verifacation complete ho jayega 
+
+Authentication => iss process me kya hota hai ke jo user server ke pass request kerta hai server usko pahanchanta hai ke wo user sahi hai ke nahi matlab request jiss bhi user ke pass se  aa raha hai  us user ko idenatatify kerna 
+
+
+Authorization => ek user kya ker sakta hai or kya nahi ker sakta ye hota hai authorization me jase spotify  me ek singer gana sun sakta hai or song create bhi ker sakta hai usko authorize kiea gya hai ye only singer ke liye he hi baki koi normal vaikati bas ana sun sakta hai usko authorize nahi hota gana create kerne ka 
+
+2 type ke authonacation hote hai session based or tocken based hum tocken base padhenge 
